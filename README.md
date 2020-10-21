@@ -10,4 +10,13 @@ Test area to play around with different standard algorithms.
 
 ### Sorting Algorithms
 
-1. Selection Sort
+- Bubble Sort
+- Bucket Sort
+- External Sort
+- Heap Sort
+- Insertion Sort
+- Merge Sort
+- Quick Sort
+- Radix Sort
+- Selection Sort
+
