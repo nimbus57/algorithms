@@ -1,2 +1,5 @@
-#to ignore compiled java classes
+#compiled java classes
 *.class
+
+#compiled c++ output files
+*.out
