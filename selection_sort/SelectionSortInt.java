@@ -6,29 +6,38 @@ import java.io.FileNotFoundException;
 
 //reads in list but doesn't sort yet
 public class SelectionSortInt {
-    public static ArrayList<Integer> selectionSort() {
-        try (Scanner input = new Scanner(new File("array.txt"))) {
-            ArrayList<Integer> input_list = new ArrayList<>();
+    public static ArrayList<Integer> selectionSort(ArrayList<Integer> list) {
+        
 
-//try to makee this more succinct
+            
+
+            return list;
+                
+    }
+
+    public static ArrayList<Integer> readFile(String fileName) {
+        try (Scanner input = new Scanner(new File(fileName))) {
+            ArrayList<Integer> input_list = new ArrayList<>();
             String[] s = input.nextLine().split(",");
             for (String st: s)
                 input_list.add(Integer.parseInt(st));
-            
-
             return input_list;
         }
         catch (FileNotFoundException e) {
             e.printStackTrace();
-            return null;
+            System.exit(0);
         }
-        
+        return null;
     }
 
-//move reading of file to main() or to new method
-//add printing of original list
     public static void main(String[] args) {
-        ArrayList<Integer> sorted_list = new ArrayList<>(selectionSort());
+        ArrayList<Integer> original_list = new ArrayList<>(readFile("array.txt"));        
+
+        System.out.println("Original List");
+        for (int i: original_list)
+            System.out.println(i);
+
+        ArrayList<Integer> sorted_list = selectionSort(original_list);
         System.out.println("Sorted List");
         for (int i: sorted_list)
             System.out.println(i);
