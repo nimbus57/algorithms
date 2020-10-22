@@ -4,15 +4,21 @@ import java.util.Arrays;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-//reads in list but doesn't sort yet
 public class SelectionSortInt {
     public static ArrayList<Integer> selectionSort(ArrayList<Integer> list) {
-        
-
-            
-
-            return list;
-                
+        for (int i = 0; i < list.size() - 1; i++) {
+            int low = list.get(i);
+            int lowIndex = i;
+            for (int j = i + 1; j < list.size(); j++) {
+                if (list.get(j) < low) {
+                    low = list.get(j);
+                    lowIndex = j;
+                }
+            }
+            list.set(lowIndex, list.get(i));
+            list.set(i, low);
+        }
+        return list;
     }
 
     public static ArrayList<Integer> readFile(String fileName) {
@@ -25,7 +31,7 @@ public class SelectionSortInt {
         }
         catch (FileNotFoundException e) {
             e.printStackTrace();
-            System.exit(0);
+            System.exit(1);
         }
         return null;
     }
